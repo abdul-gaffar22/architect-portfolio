@@ -1,0 +1,323 @@
+/*
+ * style.css - HIGH SATURATION & BRIGHT TEXT PORTFOLIO STYLESHEET
+ * High contrast, vibrant color backgrounds (Red, Blue, Green), and white text.
+ */
+
+/* --- 0. Global Reset and Variables (Vibrant Palette) --- */
+:root {
+    /* Color Palette - High Saturation and Contrast */
+    --color-primary: #FFFFFF; /* BRIGHT WHITE for text (Primary Text Color) */
+    --color-secondary: #000000; /* Deep Black for subtle backgrounds/accents */
+    --color-background: #FFFFFF; /* Pure White */
+    --color-accent: #FFD700; /* GOLD/YELLOW for interactive elements */
+    
+    /* VIBRANT SECTION COLORS */
+    --color-section-red: #D70000; /* Deep, Saturated Red */
+    --color-section-blue: #0047AB; /* Cobalt Blue */
+    --color-section-green: #008000; /* Emerald Green */
+
+    --color-text: #2c3e50; /* Dark text for readability on white sections */
+    --color-link-hover: #FFFFE0; /* Light Yellow for hover effects */
+
+    /* Typography */
+    --font-sans-serif: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+    --font-heading: 3.5rem;
+    --font-subheading: 1.8rem;
+    --font-body: 1.1rem;
+
+    /* Spacing */
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 6rem;
+    --max-width: 1400px;
+}
+
+/* Ensure sections with saturated backgrounds have bright text */
+section:not(#about) h2,
+section:not(#about) p,
+section:not(#about) h3,
+section:not(#about) a {
+    color: var(--color-primary); /* Default to Bright White */
+}
+
+/* Base style for body (affects non-colored sections like 'About') */
+body {
+    font-family: var(--font-sans-serif);
+    color: var(--color-text); 
+    background-color: var(--color-background);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.section-title {
+    font-size: var(--font-heading);
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    font-weight: 100;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    animation: fadeInSlide 1.2s ease-out both;
+    animation-delay: 0.5s;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shine {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* --- Watermark Setup --- */
+.background-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    opacity: 0.05; 
+    pointer-events: none; 
+    /* The URL path must be relative to the style.css file */
+    background-image: url('C:\Users\EDICON MPC\Desktop\image/watermark-logo.png'); 
+    background-repeat: repeat;
+    background-size: 200px; 
+}
+
+/* --- 1. Header & Navigation --- */
+.header {
+    background-color: var(--color-section-blue); /* BLUE Header */
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header > .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+    margin-left: var(--space-md);
+}
+
+.logo-dot { color: var(--color-accent); }
+
+.nav a {
+    color: var(--color-primary); 
+    text-decoration: none;
+    margin-left: var(--space-md);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav a:hover { color: var(--color-accent); }
+
+.menu-toggle { display: none; }
+
+/* --- 2. Hero Section - VIBRANT RED --- */
+.hero {
+    background-color: var(--color-section-red); /* VIBRANT RED Background */
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px; 
+}
+
+.headline, .subtitle { color: var(--color-primary); }
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-text); 
+    padding: 1rem 3.5rem; 
+    border-radius: 5px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 5px 25px rgba(255, 255, 0, 0.5); 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(120deg, var(--color-accent) 30%, var(--color-background) 50%, var(--color-accent) 70%);
+    background-size: 200% 100%;
+}
+
+.cta-button:hover {
+    box-shadow: 0 10px 30px rgba(255, 255, 0, 0.8);
+    transform: translateY(-3px);
+    animation: shine 1.5s linear infinite;
+}
+
+/* --- 3. About Section (WHITE/Default) --- */
+.about {
+    padding: var(--space-lg) 0;
+    position: relative;
+}
+.about .section-title, .about p {
+    color: var(--color-text); 
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    font-size: var(--font-body);
+}
+
+
+/* --- 4. Portfolio / Projects Section - VIBRANT BLUE --- */
+.portfolio {
+    background-color: var(--color-section-blue); /* VIBRANT BLUE Background */
+    padding: var(--space-lg) 0;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: var(--space-md);
+}
+
+.project-card {
+    background-color: var(--color-secondary); /* Black/Dark card for contrast */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2); 
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    box-shadow: 0 20px 50px rgba(255, 255, 255, 0.4);
+    transform: translateY(-8px); 
+}
+
+.project-img {
+    width: 100%;
+    height: 350px; 
+    object-fit: cover;
+    display: block;
+}
+
+.project-info {
+    padding: var(--space-md);
+}
+
+.project-title, .project-desc { color: var(--color-text); }
+
+.view-details { color: var(--color-accent); font-weight: 700; }
+
+/* --- 5. Services Section - VIBRANT GREEN --- */
+.services {
+    padding: var(--space-lg) 0;
+    background-color: var(--color-section-green); /* VIBRANT GREEN Background */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+    text-align: center;
+}
+
+.service-card {
+    background-color: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: var(--space-lg) var(--space-md);
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.service-card:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-color: var(--color-accent);
+    box-shadow: 0 10px 30px rgba(255, 255, 0, 0.3); 
+    transform: translateY(-6px);
+}
+
+.service-icon { color: var(--color-accent); font-size: 4rem; }
+
+/* Ensure all text inside service cards is bright white */
+.service-card h3, .service-card p { color: var(--color-primary) !important; }
+
+/* --- 6. Contact Section - VIBRANT RED --- */
+.contact {
+    padding: var(--space-lg) 0;
+    background-color: var(--color-section-red); /* VIBRANT RED Contact Section */
+}
+
+.contact-form input,
+.contact-form textarea {
+    border: 1px solid var(--color-primary);
+    border-left: 5px solid var(--color-accent); /* Gold Accent Bar */
+    background-color: rgba(255, 255, 255, 0.9); 
+    color: var(--color-text); 
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: var(--space-sm);
+    font-family: inherit;
+    font-size: 1rem;
+}
+.contact-form textarea { resize: vertical; }
+
+.contact-info h3, .contact-info p, .contact-info a {
+    color: var(--color-primary); /* White text for info */
+}
+.contact-info a { text-decoration: underline; }
+
+/* --- 7. Footer - WHITE/Default --- */
+.footer {
+    background-color: var(--color-background); 
+    color: var(--color-text);
+    padding: var(--space-md) 0;
+    font-size: 0.9rem;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.social-links a { color: var(--color-text); font-size: 1.5rem; margin-left: var(--space-md); }
+.social-links a:hover { color: var(--color-accent); }
+.copyright { color: var(--color-text); }
+
+
+/* --- 8. Project Modal (Kept clean for readability) --- */
+.modal {
+    display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8);
+}
+.modal-content {
+    background-color: var(--color-background); margin: 5% auto; padding: 30px; border-radius: 15px; width: 80%; max-width: 900px; position: relative;
+}
+.close-button { color: #aaa; font-size: 3rem; font-weight: bold; position: absolute; top: 10px; right: 25px; cursor: pointer; }
+.close-button:hover { color: var(--color-accent); }
+
+/* --- 9. Responsiveness --- */
+@media (max-width: 900px) {
+    .headline { font-size: 3rem; letter-spacing: 5px; }
+    .about-content, .contact-grid { grid-template-columns: 1fr; }
+    .nav { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background-color: var(--color-section-blue); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); }
+    .nav a { color: var(--color-primary); padding: 0.8rem var(--space-md); text-align: center; }
+    .menu-toggle { display: block; background: none; border: none; color: var(--color-primary); cursor: pointer; margin-right: var(--space-md); }
+}
+@media (max-width: 600px) {
+    .headline { font-size: 2rem; letter-spacing: 3px; }
+    .project-img { height: 250px; }
+    .background-pattern { background-size: 100px; }
+}
